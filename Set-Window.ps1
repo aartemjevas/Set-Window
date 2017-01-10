@@ -93,9 +93,13 @@
 "@
         
         }
+        try {
+            [void][System.Windows.Forms.Screen]
+        } catch {
+            Add-Type -AssemblyName System.Windows.Forms
+        }
     }
     Process {
-        Add-Type -AssemblyName System.Windows.Forms
         $Screen = [System.Windows.Forms.Screen]
         switch ($Position)
         {
@@ -187,7 +191,7 @@
                 $Size =        New-Object System.Management.Automation.Host.Size -ArgumentList $Width, $Height
                 $TopLeft =     New-Object System.Management.Automation.Host.Coordinates -ArgumentList $Rectangle.Left, $Rectangle.Top
                 $BottomRight = New-Object System.Management.Automation.Host.Coordinates -ArgumentList $Rectangle.Right, $Rectangle.Bottom
-                If ($Rectangle.Top -lt 0 -AND $Rectangle.LEft -lt 0) 
+                If ($Rectangle.Top -lt 0 -AND $Rectangle.Left -lt 0) 
                 {
                     Write-Warning "Window is minimized! Coordinates will not be accurate."
                 }
