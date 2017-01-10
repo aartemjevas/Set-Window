@@ -1,6 +1,6 @@
 install:
   - ps: Install-Module Pester -Force
-  - ps: Install-Modle PSScriptAnalyzer -Force
+  - ps: Install-Module PSScriptAnalyzer -Force
 
 build: false
 
