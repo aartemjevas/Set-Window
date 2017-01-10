@@ -196,7 +196,7 @@
                     Write-Warning "Window is minimized! Coordinates will not be accurate."
                 }
                 $Object = [pscustomobject]@{
-                    ProcessName = $(Get-Process | ? {$_.MainWindowHandle -eq $MainWindowHandle}).Name
+                    ProcessName = $(Get-Process | Where-Object {$_.MainWindowHandle -eq $MainWindowHandle}).Name
                     Handle = $MainWindowHandle
                     Size = $Size
                     TopLeft = $TopLeft
